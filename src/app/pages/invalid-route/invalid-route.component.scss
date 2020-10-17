@@ -1,0 +1,18 @@
+@import "../../shared/styles/variables.scss";
+.invalid-container {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .redirect {
+    padding-top: 1rem;
+    .highlight {
+      cursor: pointer;
+      color: $primary-60;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

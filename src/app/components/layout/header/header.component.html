@@ -1,0 +1,27 @@
+<main class="header-container">
+  <div class="banner">
+    <mat-icon>devices_other</mat-icon>
+    <span>OneStopTech</span>
+  </div>
+
+  <div class="user-container">
+    <!-- User icon -->
+    <figure>
+      <mat-icon>account_circle</mat-icon>
+    </figure>
+
+    <!-- User name -->
+
+    <span>{{ username }}</span>
+    <!-- Menu -->
+    <div class="arrow-menu">
+      <button [matMenuTriggerFor]="menu" mat-icon-button>
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <a class="tausy-user-guide" href="https://www.novopay.in/" mat-menu-item target="_blank"> Help </a>
+        <a (click)="onLogout()" class="tausy-user-logout" mat-menu-item> Logout </a>
+      </mat-menu>
+    </div>
+  </div>
+</main>

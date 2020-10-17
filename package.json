@@ -1,26 +1,52 @@
 {
   "name": "one-stop-tech",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start:dev": "npm run serve:ssr",
+    "build:dev": "npm run build:ssr",
+    "build:PROD": "ng build --prod --output-hashing=all --buildOptimizer=true",
+    "test:Live": "ng test --watch=true --poll=5000",
+    "test:CI": "ng test --browsers ChromeHeadless --no-watch --code-coverage",
+    "lint:fix": "lint-staged",
+    "lint:check": "ng lint | grep \"ERROR\" || true",
+    "format:check": "prettier -c \"src/**/*.{js,ts}\"",
+    "format:fix:all": "prettier -c \"src/**/*.{js,ts}\" --write",
+    "format:fix:staged": "pretty-quick --staged",
+    "changelog": "auto-changelog -p",
+    "dev:ssr": "ng run spacex-launches:serve-ssr",
+    "prod:ssr": "ng run spacex-launches:server:production",
+    "serve:ssr": "node dist/spacex-launches/server/main.js",
+    "build:ssr": "run-s format:check lint:check build:PROD prod:ssr",
+    "prerender": "ng run spacex-launches:prerender"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.0",
+    "@angular/cdk": "^9.2.4",
     "@angular/common": "~9.1.0",
     "@angular/compiler": "~9.1.0",
     "@angular/core": "~9.1.0",
     "@angular/forms": "~9.1.0",
+    "@angular/material": "^9.2.4",
     "@angular/platform-browser": "~9.1.0",
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
+    "auto-changelog": "^2.2.1",
+    "camelcase-keys-recursive": "^0.8.3",
+    "core-js": "^3.6.5",
+    "express": "^4.17.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.1.2",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
+    "tslint": "^6.1.3",
+    "typescript": "~3.8.3",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
@@ -28,10 +54,12 @@
     "@angular/cli": "~9.1.0",
     "@angular/compiler-cli": "~9.1.0",
     "@angular/language-service": "~9.1.0",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
+    "auto-changelog": "^2.2.1",
     "codelyzer": "^5.1.2",
+    "husky": "^4.3.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.4.1",
@@ -39,9 +67,28 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "lint-staged": "^10.4.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^3.0.2",
     "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
-    "tslint": "~6.1.0",
+    "tslint": "^6.1.3",
     "typescript": "~3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "run-s lint:fix format:fix:staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "tslint --fix --force",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": "12.13.0",
+    "npm": "6.12.0"
   }
 }

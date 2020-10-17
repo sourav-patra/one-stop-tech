@@ -1,0 +1,33 @@
+<main class="login-wrapper">
+  <section class="login-container">
+    <aside class="application-description">
+      <header class="desc-item">Welcome to</header>
+      <div class="desc-item name">OneStopTech</div>
+      <div class="desc-item subtitle">India's first dedicated online store for gadgets.Your one stop destination for all things tech.</div>
+    </aside>
+    <main class="form-container">
+      <figure>
+        <img src="assets/pics/account-icon.png" alt="user-profile" />
+      </figure>
+      <form [formGroup]="loginForm" (ngSubmit)="loginClicked()">
+        <mat-form-field appearance="outline" class="form-field login">
+          <mat-label>User name</mat-label>
+          <input matInput formControlName="userName" />
+          <mat-error *ngIf="f.userName?.errors && (f.userName.dirty || f.userName.touched)">
+            <span *ngIf="f.userName.errors.required">Enter user name</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field password">
+          <mat-label>Password</mat-label>
+          <input matInput autocomplete="off" type="password" formControlName="password" />
+          <mat-error *ngIf="f.password?.errors && (f.password.dirty || f.password.touched)">
+            <span *ngIf="f.password.errors.required">Enter password</span>
+          </mat-error>
+        </mat-form-field>
+        <button type="submit">LOGIN</button>
+        <small class="error" *ngIf="invalidCredentialsErrorMsg$ | async as message">{{ message }}</small>
+      </form>
+    </main>
+  </section>
+</main>
