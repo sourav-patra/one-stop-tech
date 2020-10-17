@@ -6,9 +6,18 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [],
-  exports: [MatInputModule, MatButtonModule, MatDialogModule, MatSnackBarModule, MatIconModule, MatMenuModule],
+  exports: [
+    MatInputModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatTooltipModule,
+  ],
 })
 export class MaterialModule {}

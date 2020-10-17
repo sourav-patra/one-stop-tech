@@ -1,1 +1,13 @@
-<p>side-panel works!</p>
+<nav class="side-panel">
+  <ul class="nav">
+    <li
+      *ngFor="let item of sideNavConstants; let i = index"
+      (click)="navigateToRoute(i)"
+      class="nav-item"
+      [ngClass]="{ 'active-route': activeRouteIndex === i }"
+    >
+      <mat-icon>{{ item.iconName }}</mat-icon>
+      <span>{{ item.categoryName }}</span>
+    </li>
+  </ul>
+</nav>

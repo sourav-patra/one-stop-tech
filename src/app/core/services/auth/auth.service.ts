@@ -55,6 +55,7 @@ export class AuthService implements OnDestroy {
       } else {
         const userInfo = this.sharedService.getUserFromStorage();
         if (userInfo?.userName && userInfo?.password) {
+          this.setLogin(userInfo);
           // Credentials present so allow navigation
           subscriber.next(true);
         } else {
@@ -72,7 +73,10 @@ export class AuthService implements OnDestroy {
    * @param formData form data entered by user
    */
   public validateCredentials(serverUserInfo: IUserInfo, formData: IUserInfo): boolean {
-    if (serverUserInfo?.userName === formData?.userName && serverUserInfo.password === serverUserInfo?.password) {
+    if (
+      serverUserInfo?.userName === formData?.userName &&
+      serverUserInfo.password === serverUserInfo?.password
+    ) {
       return true;
     }
     return false;
@@ -129,7 +133,8 @@ export class AuthService implements OnDestroy {
             this.setInvalidCredentialsErrorMessage("An error has occured. Please try again.");
           }
         },
-        error: (): void => this.setInvalidCredentialsErrorMessage("An error has occured. Please try again."),
+        error: (): void =>
+          this.setInvalidCredentialsErrorMessage("An error has occured. Please try again."),
       });
   }
 

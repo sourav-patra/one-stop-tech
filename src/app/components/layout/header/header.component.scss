@@ -1,24 +1,37 @@
-@import "../../../shared/styles/variables.scss";
+@import "../../../shared/styles/_variables.scss";
 
 .header-container {
   position: fixed;
-  height: 50px;
+  height: 60px;
+  width: 100vw;
   background: $primary-60;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: "Roboto";
-
+  color: $primary-80;
   .banner {
     display: flex;
     align-items: center;
-    mat-icon {
-      font-size: 20px;
+    padding-left: 4rem;
+    .banner-icon {
+      cursor: pointer;
     }
     span {
+      cursor: pointer;
       font-size: 25px;
-      font-size: 300;
-      padding: 0 5px;
+      font-weight: 300;
+      padding: 0 1rem;
+    }
+  }
+
+  .profile-container {
+    display: flex;
+    align-items: center;
+    color: $primary-10;
+    span.user-name {
+      font-size: 20px;
+      padding: 0 1rem;
     }
   }
 }
