@@ -4,12 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run build:PROD",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:dev": "npm run serve:ssr",
-    "build:dev": "npm run build:ssr",
     "build:PROD": "ng build --prod --output-hashing=all --buildOptimizer=true",
     "test:Live": "ng test --watch=true --poll=5000",
     "test:CI": "ng test --browsers ChromeHeadless --no-watch --code-coverage",
@@ -18,12 +16,7 @@
     "format:check": "prettier -c \"src/**/*.{js,ts}\"",
     "format:fix:all": "prettier -c \"src/**/*.{js,ts}\" --write",
     "format:fix:staged": "pretty-quick --staged",
-    "changelog": "auto-changelog -p",
-    "dev:ssr": "ng run spacex-launches:serve-ssr",
-    "prod:ssr": "ng run spacex-launches:server:production",
-    "serve:ssr": "node dist/spacex-launches/server/main.js",
-    "build:ssr": "run-s format:check lint:check build:PROD prod:ssr",
-    "prerender": "ng run spacex-launches:prerender"
+    "changelog": "auto-changelog -p"
   },
   "private": true,
   "dependencies": {
