@@ -1,0 +1,12 @@
+<div class="modal">
+  <header>
+    <span>{{ dialogData?.header || "Info" }}</span>
+    <mat-icon (click)="closeDialog()">close</mat-icon>
+  </header>
+  <section *ngIf="dialogData?.message">
+    {{ dialogData.message }}
+  </section>
+  <footer>
+    <button (click)="closeDialog()" mat-raised-button>Okay</button>
+  </footer>
+</div>

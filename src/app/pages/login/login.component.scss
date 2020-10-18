@@ -1,7 +1,8 @@
 @import "../../shared/styles/variables.scss";
 
 .login-wrapper {
-  background: linear-gradient($bg-transparent, $bg-transparent-gradient-2), url("src/assets/pics/login-bg.jpg");
+  background: linear-gradient($bg-transparent, $bg-transparent-gradient-2),
+    url("src/assets/pics/login-bg.jpg");
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,12 +69,18 @@
         .form-field {
           width: 100%;
           padding-top: 1rem;
+
+          &.password {
+            .mat-icon {
+              cursor: pointer;
+            }
+          }
         }
 
         small.error {
           color: $danger;
         }
-        button {
+        button.login-btn {
           background-color: $btn-primary;
           margin: 1rem 0;
           padding: 1rem 0;

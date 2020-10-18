@@ -1,0 +1,67 @@
+@import "../../shared/styles/_variables.scss";
+.contact-us-wrapper {
+  height: calc(100vh - 60px);
+  padding: 60px 0 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(1, 73, 114, 0.75)),
+    url("src/assets/pics/contact-us-bg.jpg");
+  .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 4rem 8rem;
+    width: 500px;
+    min-height: 300px;
+    box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.2);
+    background: $secondary;
+
+    header {
+      font-family: "Roboto";
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 1.2em;
+      text-align: left;
+      color: $gray-dark;
+      padding-bottom: 2rem;
+      &::after {
+        content: " ";
+        display: block;
+        border-top: 2px solid $gray-dark;
+      }
+    }
+    .form-field {
+      width: 100%;
+      padding-bottom: 2rem;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: $btn-primary-2;
+      padding: 0 20px;
+      text-align: center;
+      border: none;
+      border-radius: 30px;
+      min-width: 160px;
+      height: 50px;
+      font-size: 16px;
+      color: $white;
+      line-height: 1.2em;
+      letter-spacing: 2px;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.4s;
+      box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.2);
+      &:hover {
+        background: $gray-dark;
+        color: $primary-80;
+      }
+      &:focus {
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(37, 104, 239, 0.25);
+      }
+    }
+  }
+}

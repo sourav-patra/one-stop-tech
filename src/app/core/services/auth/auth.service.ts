@@ -1,8 +1,6 @@
-import { HttpErrorResponse } from "@angular/common/http";
-import { dashCaseToCamelCase } from "@angular/compiler/src/util";
 import { Injectable, OnDestroy } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { BehaviorSubject, Observable, Subject, Subscriber } from "rxjs";
+import { BehaviorSubject, Observable, Subject, Subscriber, TeardownLogic } from "rxjs";
 import { map, pluck, takeUntil } from "rxjs/operators";
 import { IResponseModel } from "src/app/shared/models/response.model";
 import { IUserInfo } from "src/app/shared/models/user.model";
@@ -48,22 +46,24 @@ export class AuthService implements OnDestroy {
    * either check from cache or refetch from API
    */
   public isUserLoggedIn(): Observable<boolean> {
-    return new Observable<boolean>((subscriber: Subscriber<boolean>) => {
-      if (this.isLoggedIn) {
-        subscriber.next(true);
-        subscriber.complete();
-      } else {
-        const userInfo = this.sharedService.getUserFromStorage();
-        if (userInfo?.userName && userInfo?.password) {
-          this.setLogin(userInfo);
-          // Credentials present so allow navigation
+    return new Observable<boolean>(
+      (subscriber: Subscriber<boolean>): TeardownLogic => {
+        if (this.isLoggedIn) {
           subscriber.next(true);
+          subscriber.complete();
         } else {
-          // Credentials not presen so do not allow navigation
-          subscriber.next(false);
+          const userInfo = this.sharedService.getUserFromStorage();
+          if (userInfo?.userName && userInfo?.password) {
+            this.setLogin(userInfo);
+            // Credentials present so allow navigation
+            subscriber.next(true);
+          } else {
+            // Credentials not presen so do not allow navigation
+            subscriber.next(false);
+          }
         }
       }
-    });
+    );
   }
 
   /**
@@ -75,7 +75,7 @@ export class AuthService implements OnDestroy {
   public validateCredentials(serverUserInfo: IUserInfo, formData: IUserInfo): boolean {
     if (
       serverUserInfo?.userName === formData?.userName &&
-      serverUserInfo.password === serverUserInfo?.password
+      serverUserInfo.password === formData?.password
     ) {
       return true;
     }
@@ -115,7 +115,6 @@ export class AuthService implements OnDestroy {
       )
       .subscribe({
         next: (userInfo: IUserInfo): void => {
-          console.log(userInfo);
           if (userInfo) {
             if (this.validateCredentials(formData, userInfo)) {
               this.setLogin(userInfo);

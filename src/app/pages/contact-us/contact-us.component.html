@@ -1,1 +1,54 @@
-<p>contact-us works!</p>
+<section class="contact-us-wrapper">
+  <form class="form" [formGroup]="contactForm" (ngSubmit)="submitForm()">
+    <header>Contact Us</header>
+
+    <mat-form-field class="form-field">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" required />
+      <mat-error *ngIf="f.name?.errors && (f.name.dirty || f.name.touched)">
+        <span *ngIf="f.name.errors.required">Enter name</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required />
+      <mat-error *ngIf="f.email?.errors && (f.email.dirty || f.email.touched)">
+        <span *ngIf="f.email.errors.required">Enter email ID</span>
+        <span *ngIf="f.email.errors.email">Enter a valid email ID</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Phone</mat-label>
+      <span matPrefix>+91 &nbsp;</span>
+      <input
+        matInput
+        autocomplete="off"
+        type="tel"
+        placeholder="555-555-5555"
+        formControlName="phone"
+        required
+      />
+      <mat-error *ngIf="f.phone?.errors && (f.phone.dirty || f.phone.touched)">
+        <span *ngIf="f.phone.errors.required">Enter phone</span>
+        <span *ngIf="f.phone.errors.min || f.phone.errors.max">Enter a valid phone number</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Comments</mat-label>
+      <textarea
+        matInput
+        cdkAutosizeMaxRows="6"
+        cdkAutosizeMinRows="3"
+        placeholder="Go ahead, we are listening..."
+        cdkTextareaAutosize
+        autocomplete="off"
+        formControlName="comments"
+      ></textarea>
+    </mat-form-field>
+
+    <button type="submit">Submit</button>
+  </form>
+</section>

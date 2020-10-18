@@ -1,0 +1,41 @@
+@import "../../../../shared/styles/_variables.scss";
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      color: $primary-60;
+      font-size: 22px;
+    }
+    .mat-icon {
+      color: $gray-dark;
+      cursor: pointer;
+    }
+  }
+  section {
+    padding: 1rem 0;
+    font-size: 15px;
+  }
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    button.mat-raised-button {
+      background: $primary-60;
+      color: $light;
+      transition: background 0.3s;
+      &:hover {
+        background: $btn-hover;
+        transition: background 0.3s;
+      }
+    }
+  }
+}
