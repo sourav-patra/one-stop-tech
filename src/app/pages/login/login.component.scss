@@ -21,6 +21,7 @@
       justify-content: center;
       flex-direction: column;
       padding-right: 2rem;
+      box-sizing: border-box;
       color: $primary-10;
       .desc-item {
         padding: 2rem 0;
@@ -43,6 +44,7 @@
       width: 400px;
       background: $white;
       padding: 2rem;
+      box-sizing: border-box;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -101,6 +103,30 @@
             box-shadow: 0 0 0 0.2rem rgba(37, 104, 239, 0.25);
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1368px) {
+  .login-wrapper {
+    .login-container {
+      width: calc(100vw - 400px);
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .login-wrapper {
+    .login-container {
+      width: 500px;
+      flex-direction: column;
+      height: unset;
+      aside {
+        width: 100%;
+      }
+      .form-container {
+        width: 100%;
       }
     }
   }
