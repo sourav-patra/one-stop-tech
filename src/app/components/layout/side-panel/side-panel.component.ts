@@ -2,7 +2,7 @@ import { Component, OnDestroy } from "@angular/core";
 import { Event, GuardsCheckEnd, NavigationCancel, NavigationEnd, Router } from "@angular/router";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
-import * as CONST from "../../../shared/constants/side-nav.contants";
+import * as CONST from "../../../shared/constants/side-nav.constants";
 
 @Component({
   selector: "app-side-panel",

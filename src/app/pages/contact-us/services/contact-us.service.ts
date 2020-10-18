@@ -12,9 +12,7 @@ import {
 import { IResponseModel } from "src/app/shared/models/response.model";
 import { ConfirmModalComponent } from "../components/confirm-modal/confirm-modal.component";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable()
 export class ContactUsService implements OnDestroy {
   private destroy$ = new Subject<boolean>();
   constructor(private httpService: HttpService, private dialog: MatDialog) {}

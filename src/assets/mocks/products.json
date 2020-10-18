@@ -1,0 +1,59 @@
+{
+  "data": [
+    {
+      "category": "Laptops",
+      "product_name": "Lenovo Thinkpad T450",
+      "product_image_url": "https://images.unsplash.com/photo-1589973050283-6b0ac0fb16af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "product_price": "$699"
+    },
+    {
+      "category": "Laptops",
+      "product_name": "Dell XPS 15",
+      "product_image_url": "https://images.unsplash.com/photo-1575320854760-bfffc3550640?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "product_price": "$799"
+    },
+    {
+      "category": "Laptops",
+      "product_name": "Macbook Pro 16 inch",
+      "product_image_url": "https://images.unsplash.com/photo-1517607537732-619ace47ec9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "product_price": "$1099"
+    },
+    {
+      "category": "Mobiles",
+      "product_name": "Apple iPhone 12",
+      "product_image_url": "https://images.unsplash.com/photo-1596558450268-9c27524ba856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "product_price": "$799"
+    },
+    {
+      "category": "Mobiles",
+      "product_name": "OnePlus 8T Pro",
+      "product_image_url": "https://images.unsplash.com/photo-1527747471697-174c755627dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "product_price": "$499"
+    },
+    {
+      "category": "Mobiles",
+      "product_name": "Samsung Galaxy S11",
+      "product_image_url": "https://images.unsplash.com/photo-1565967249821-083c4775e5bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "product_price": "$599"
+    },
+    {
+      "category": "Tablets",
+      "product_name": "Apple iPad Pro 11 inch",
+      "product_image_url": "https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "product_price": "$799"
+    },
+    {
+      "category": "Tablets",
+      "product_name": "Microsoft Surface Pro 6",
+      "product_image_url": "https://images.unsplash.com/photo-1599410648382-04e7d8805a03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "product_price": "$699"
+    },
+    {
+      "category": "Tablets",
+      "product_name": "Samsung Galaxy Book",
+      "product_image_url": "https://images.unsplash.com/photo-1560790189-429f6daad014?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "product_price": "$599"
+    }
+  ],
+  "error": {}
+}

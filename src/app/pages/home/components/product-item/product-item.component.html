@@ -1,0 +1,21 @@
+<div class="product-item-container">
+  <div class="image-container" [ngClass]="{ 'height-for-ie': imageLoading }">
+    <mat-progress-spinner
+      *ngIf="imageLoading"
+      [mode]="'indeterminate'"
+      [diameter]="24"
+      [strokeWidth]="2"
+    >
+    </mat-progress-spinner>
+    <img
+      [hidden]="imageLoading"
+      (load)="onImageLoad()"
+      [src]="product.productImageUrl"
+      alt="Product image"
+    />
+  </div>
+  <section>
+    <header>{{ product.productName }}</header>
+    <span>{{ product.productPrice }}</span>
+  </section>
+</div>

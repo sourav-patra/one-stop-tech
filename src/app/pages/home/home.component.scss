@@ -1,0 +1,80 @@
+@import "../../shared/styles/_variables.scss";
+.home-container {
+  padding: 60px 0 0 60px;
+  box-sizing: border-box;
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e3f3ff;
+    height: 100px;
+    ul {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      height: 100%;
+      li {
+        font-family: "Roboto";
+        font-size: 20px;
+        color: $primary-100;
+        cursor: pointer;
+        background: transparent;
+        transition: background 0.3s;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        justify-content: center;
+        width: 15rem;
+        .mat-icon {
+          padding-right: 1rem;
+        }
+        &:hover,
+        &.active {
+          background: rgba(37, 104, 239, 0.2);
+          transition: background 0.3s;
+        }
+      }
+    }
+  }
+
+  main {
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 4rem;
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .search-field {
+        width: 500px;
+        position: relative;
+        .search-icon {
+          position: absolute;
+          left: 0;
+        }
+      }
+    }
+
+    .product-list-container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 1rem;
+      box-sizing: border-box;
+      &.loading {
+        justify-content: center;
+        font-size: 18px;
+      }
+      .grid-item {
+        width: 33%;
+        &.flex-grow {
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+}

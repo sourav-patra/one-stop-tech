@@ -1,0 +1,41 @@
+@import "../../../../shared/styles/_variables.scss";
+
+.product-item-container {
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 0 1rem 1rem;
+  height: calc(100% - 1rem);
+  box-sizing: border-box;
+  background: $white;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.5);
+  div.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    min-height: 200px;
+    &.height-for-ie {
+      height: 50px; // vertical alignment does not work properly in IE unless height is set
+    }
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    header {
+      font-size: 20px;
+      color: $primary;
+    }
+    span {
+      font-size: 16px;
+    }
+  }
+}

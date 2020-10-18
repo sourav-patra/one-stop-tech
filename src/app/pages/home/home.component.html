@@ -1,1 +1,60 @@
-<p>home works!</p>
+<section class="home-container">
+  <nav>
+    <ul>
+      <li
+        [ngClass]="{ active: category.label === activeCategory }"
+        *ngFor="let category of categoriesList"
+        (click)="selectCategory(category.label)"
+      >
+        <mat-icon>{{ category.icon }}</mat-icon>
+        <span>{{ category.label }}</span>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    <!-- Search -->
+    <header>
+      <form [formGroup]="searchForm">
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Search</mat-label>
+          <input formControlName="search" matInput type="text" />
+          <button
+            mat-button
+            *ngIf="f.search.value?.length"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="clearSearch()"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+    </header>
+
+    <ng-container *ngIf="loader$ | async; else displayContents">
+      <section class="product-list-container loading">
+        <mat-progress-spinner [mode]="'indeterminate'" [diameter]="26" [strokeWidth]="2">
+        </mat-progress-spinner>
+      </section>
+    </ng-container>
+
+    <ng-template #displayContents>
+      <!-- Wait for data stream -->
+      <ng-container *ngIf="productList$ | async as productList">
+        <section class="product-list-container" *ngIf="productList.length; else noData">
+          <div *ngFor="let product of productList" class="grid-item">
+            <app-product-item [product]="product"></app-product-item>
+          </div>
+        </section>
+        <ng-template #noData>
+          <section class="product-list-container loading">
+            <span>No data</span>
+          </section>
+        </ng-template>
+      </ng-container>
+    </ng-template>
+
+    <!-- Contains list of products -->
+  </main>
+</section>
